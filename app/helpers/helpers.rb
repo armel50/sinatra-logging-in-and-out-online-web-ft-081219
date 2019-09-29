@@ -5,6 +5,6 @@ class Helpers
   end
   
   def self.is_logged_in?(arg)
-    @user ? true : false
+    arg[:user_id] ? true : false
   end
 end
