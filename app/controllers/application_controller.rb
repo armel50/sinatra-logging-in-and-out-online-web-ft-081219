@@ -24,9 +24,10 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-     @current_user = Helpers.current_user(session)
+    
     # @current_user && session[:user_id]
-     if @current_user
+     if Helpers.is_logged_in?(session)
+        @current_user = Helpers.current_user(session)
       erb :account
     else
       redirect '/error'
